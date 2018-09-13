@@ -30,12 +30,13 @@ describe("Un estado", () => {
       estadoArgentino.abrirMinisterio(ministerioCyT);
     });
 
-    it("", () => {
+    it("cuando no hubo partidas", () => {
       expect(ministerioCyT.presupuestoSubejecutado).to.be.true;
     });
 
-    it("", () => {
-      estadoArgentino.ejecutarPartida(ministerioCyT, 6600);
+    it("cuando las partidas suman lo prometido", () => {
+      estadoArgentino.ejecutarPartida(ministerioCyT, 3600);
+      estadoArgentino.ejecutarPartida(ministerioCyT, 3000);
       expect(ministerioCyT.presupuestoSubejecutado).to.be.false;
     });
   })
