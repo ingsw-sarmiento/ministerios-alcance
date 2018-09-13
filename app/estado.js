@@ -15,7 +15,13 @@ class Estado {
   }
 
   cerrarMinisterio(ministerio){
-    this.deudaFmi = ministerio.dineroDisponible
-    ministerio.dineroDisponible = 0
+    if (ministerio.abierto){
+      this.deudaFmi = ministerio.dineroDisponible
+      ministerio.dineroDisponible = 0
+      ministerio.abierto = false;
+    }else{
+      throw "El ministerio está cerrado"
+    }
   }
+  
 }
