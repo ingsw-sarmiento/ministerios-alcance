@@ -9,4 +9,8 @@ class Ministerio {
   recibirPartida(partida) {
     this.dineroDisponible += partida;
   }
+
+  get presupuestoSubejecutado() {
+    return this.dineroDisponible < this.presupuestoAnual;
+  }
 }

@@ -25,4 +25,18 @@ describe("Un estado", () => {
     expect(estadoArgentino.presupuestoEjecutado).to.eq(1000);
   })
 
+  describe("puede saber si subejecutó el presupuesto de un ministerio", () => {
+    beforeEach(() => {
+      estadoArgentino.abrirMinisterio(ministerioCyT);
+    });
+
+    it("", () => {
+      expect(ministerioCyT.presupuestoSubejecutado).to.be.true;
+    });
+
+    it("", () => {
+      estadoArgentino.ejecutarPartida(ministerioCyT, 6600);
+      expect(ministerioCyT.presupuestoSubejecutado).to.be.false;
+    });
+  })
 });
