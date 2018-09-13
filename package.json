@@ -1,0 +1,16 @@
+{
+  "name": "ministerios-alcance",
+  "version": "1.0.0",
+  "description": "Ejercicio para trabajar el concepto de alcance",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "author": "Federico Aloi",
+  "license": "MIT",
+  "repository": "https://github.com/ingsw-sarmiento/ministerios-alcance",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
