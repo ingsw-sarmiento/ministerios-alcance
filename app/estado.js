@@ -11,6 +11,6 @@ class Estado {
 
   ejecutarPartida(ministerio, partida) {
     ministerio.recibirPartida(partida);
-    this.presupuestoEjecutado += partida;
+    this.presupuestoEjecutado -= partida;
   }
 }
