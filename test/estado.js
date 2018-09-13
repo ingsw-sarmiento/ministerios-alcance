@@ -10,7 +10,7 @@ describe("Un estado", () => {
     estadoArgentino.presupuestoAnual = 1000;
   });
 
-  it("puede abrir un ministerio, asignando el porcentaje de presupuesto anual", () => {
+  it("puede abrir un ministerio, asignando el porcentaje de presupuesto anual que le corresponde", () => {
     const ministerioCyT = new Ministerio();
     estadoArgentino.abrirMinisterio(ministerioCyT, 0.66);
 
