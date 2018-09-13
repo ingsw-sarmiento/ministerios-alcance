@@ -6,6 +6,7 @@ class Estado {
   }
 
   abrirMinisterio(ministerio) {
+    ministerio.abierto = true;
     ministerio.presupuestoAnual = this.presupuestoAnual * ministerio.porcentajePresupuesto / 100;
   }
 
@@ -16,12 +17,12 @@ class Estado {
 
   cerrarMinisterio(ministerio){
     if (ministerio.abierto){
-      this.deudaFmi = ministerio.dineroDisponible
-      ministerio.dineroDisponible = 0
+      this.deudaFmi = ministerio.dineroDisponible;
+      ministerio.dineroDisponible = 0;
       ministerio.abierto = false;
     }else{
       throw "El ministerio está cerrado"
     }
   }
-  
+
 }
