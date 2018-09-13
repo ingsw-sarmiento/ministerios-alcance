@@ -13,4 +13,9 @@ class Estado {
     ministerio.recibirPartida(partida);
     this.presupuestoEjecutado += partida;
   }
+
+  cerrarMinisterio(ministerio){
+    this.deudaFmi = ministerio.dineroDisponible
+    ministerio.dineroDisponible = 0
+  }
 }

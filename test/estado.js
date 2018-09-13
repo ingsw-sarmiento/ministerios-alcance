@@ -12,6 +12,13 @@ describe("Un estado", () => {
     ministerioCyT = new Ministerio(0.66);
   });
 
+  it("cierra un ministerio", () => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+    estadoArgentino.ejecutarPartida(ministerioCyT, 1000)
+    estadoArgentino.cerrarMinisterio(ministerioCyT);
+    expect(estadoArgentino.deudaFmi).to.eq(1000);
+  });
+
   it("puede abrir un ministerio, asignando el porcentaje de presupuesto anual que le corresponde", () => {
     estadoArgentino.abrirMinisterio(ministerioCyT);
     expect(ministerioCyT.presupuestoAnual).to.eq(6600);
