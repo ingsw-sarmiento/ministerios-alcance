@@ -1,8 +1,10 @@
+
 module.exports =
 
 class Estado {
   constructor() {
     this.presupuestoEjecutado = 0;
+    this.cuentaEspecialEstado;
   }
 
   abrirMinisterio(ministerio) {
@@ -13,4 +15,9 @@ class Estado {
     ministerio.recibirPartida(partida);
     this.presupuestoEjecutado += partida;
   }
+
+  recibirPago(importe) {
+    this.cuentaEspecialEstado += importe;
+  }
+
 }
