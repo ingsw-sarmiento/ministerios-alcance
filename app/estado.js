@@ -3,6 +3,7 @@ module.exports =
 class Estado {
   constructor() {
     this.presupuestoEjecutado = 0;
+    this.dineroDisponible = 100000;
   }
 
   abrirMinisterio(ministerio) {
@@ -13,6 +14,7 @@ class Estado {
   ejecutarPartida(ministerio, partida) {
     ministerio.recibirPartida(partida);
     this.presupuestoEjecutado += partida;
+    this.dineroDisponible -= partida;
   }
 
   cerrarMinisterio(ministerio){
@@ -23,6 +25,10 @@ class Estado {
     }else{
       throw "El ministerio está cerrado"
     }
+  }
+
+  pedirPrestamo(dinero){
+
   }
 
 }

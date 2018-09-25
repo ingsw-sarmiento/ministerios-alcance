@@ -12,6 +12,15 @@ describe("Un estado", () => {
     ministerioCyT = new Ministerio(0.66);
   });
 
+  it("tiene 100.000 pesos de dinero disponible", () => {
+    expect(estadoArgentino.dineroDisponible).to.eq(100000);
+  });
+
+  it("Ejecuta una partida de 1000 pesos y disminuye el dinero disponible", () => {
+    estadoArgentino.ejecutarPartida(ministerioCyT, 1000);
+    expect(estadoArgentino.dineroDisponible).to.eq(99000);
+  });
+
   it("cierra un ministerio", () => {
     estadoArgentino.abrirMinisterio(ministerioCyT);
     estadoArgentino.ejecutarPartida(ministerioCyT, 1000)
