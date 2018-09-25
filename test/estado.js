@@ -10,11 +10,38 @@ describe("Un estado", () => {
     estadoArgentino = new Estado();
     estadoArgentino.presupuestoAnual = 1000000;
     ministerioCyT = new Ministerio(0.66);
+    estadoArgentino.aPagarAFmi = 0;
+
   });
 
   it("puede abrir un ministerio, asignando el porcentaje de presupuesto anual que le corresponde", () => {
     estadoArgentino.abrirMinisterio(ministerioCyT);
     expect(ministerioCyT.presupuestoAnual).to.eq(6600);
+  });
+
+  it("cierra un ministerio", () => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+    estadoArgentino.ejecutarPartida(ministerioCyT, 1000);
+    estadoArgentino.cerrarMinisterio(ministerioCyT);
+    expect(estadoArgentino.deudaFmi).to.eq(1000) ;
+  });
+
+  it("dinero pedido al fondo", () => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+    estadoArgentino.pedirPrestamoAlFmi(ministerioCyT, 30000);
+    expect(estadoArgentino.dineroDisponible).to.eq(110000) ;
+  });
+
+  it("incremento su deuda ",() => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+      estadoArgentino.pedirPrestamoAlFmi(ministerioCyT, 30000);
+      expect(estadoArgentino.totalDeuda).to.eq(30000)
+  });
+
+  it("no puede cerrar un ministerio", () => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+    estadoArgentino.cerrarMinisterio(ministerioCyT);
+    expect(()=>estadoArgentino.cerrarMinisterio(ministerioCyT)).to.throw();
   });
 
   it("puede ejecutar una partida presupuestaria, poniendo el dinero a disponibilidad del ministerio", () => {
