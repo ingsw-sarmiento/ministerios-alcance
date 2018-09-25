@@ -18,17 +18,23 @@ class Estado {
   }
 
   cerrarMinisterio(ministerio){
-    if (ministerio.abierto){
-      this.deudaFmi = ministerio.dineroDisponible;
-      ministerio.dineroDisponible = 0;
-      ministerio.abierto = false;
-    }else{
-      throw "El ministerio está cerrado"
+    if(ministerio.abierto){
+      this.deudaFmi = ministerio.dineroDisponible
+      ministerio.dineroDisponible= 0
+      ministerio.abierto=false
+    }
+  else {
+    throw "El ministerio esta cerrado"
     }
   }
 
-  pedirPrestamo(dinero){
-
+pedirPrestamoAlFmi(ministerio, dinero){
+  this.cerrarMinisterio(ministerio);
+  this.aPagarAFmi += dinero
+  this.dineroDisponible += dinero / 3
   }
 
+get totalDeuda(){
+  return this.aPagarAFmi;
+  }
 }
