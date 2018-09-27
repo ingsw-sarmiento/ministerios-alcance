@@ -80,6 +80,16 @@ describe("Un estado", () => {
     expect(estadoArgentino.presupuestoEjecutado).to.eq(1000);
   })
 
+  it("puede ejecutar una partida en momento de crisis, poniendo una parte del dinero a disponibilidad del ministerio", () => {
+    estadoArgentino.abrirMinisterio(ministerioCyT);
+    estadoArgentino.momentoDeCrisis = true;
+    estadoArgentino.ejecutarPartida(ministerioCyT, 3000);
+
+    expect(ministerioCyT.dineroDisponible).to.eq(2000);
+    expect(estadoArgentino.deudaFmi).to.eq(1000);
+  })
+
+
   describe("puede saber si subejecutó el presupuesto de un ministerio", () => {
     beforeEach(() => {
       estadoArgentino.abrirMinisterio(ministerioCyT);
@@ -94,5 +104,5 @@ describe("Un estado", () => {
       estadoArgentino.ejecutarPartida(ministerioCyT, 3000);
       expect(ministerioCyT.presupuestoSubejecutado).to.be.false;
     });
-  })
+  });
 });
