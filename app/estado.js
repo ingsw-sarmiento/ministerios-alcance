@@ -19,5 +19,6 @@ class Estado {
   recibirPago(importe) {
     this.cuentaEspecialEstado += importe;
   }
+  
 
 }

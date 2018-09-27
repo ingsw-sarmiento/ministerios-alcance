@@ -4,6 +4,7 @@ class Ministerio {
   constructor(porcentajePresupuesto) {
     this.porcentajePresupuesto = porcentajePresupuesto;
     this.dineroDisponible = 0;
+    this.presupuestoAnual=0;
   }
 
   recibirPartida(partida) {

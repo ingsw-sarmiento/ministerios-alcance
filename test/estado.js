@@ -39,5 +39,26 @@ describe("Un estado", () => {
       estadoArgentino.ejecutarPartida(ministerioCyT, 3000);
       expect(ministerioCyT.presupuestoSubejecutado).to.be.false;
     });
-  })
+
+    beforeEach(() => {
+      ministerioE =new Ministerio(0.55);
+    });
+    it("el dinero disponible del ministerioCyT es igual a 4000", () => {
+    ministerioCyT.dineroDisponible = 4000;
+    expect(ministerioCyT.dineroDisponible).to.eq(4000);
+  });
+     it("ministerioCyT reparte la mitad de su dineroDisponible y queda en cero", () => {
+     ministerioCyT.fusionar(ministerioE,estadoArgentino);
+     expect(ministerioE.dineroDisponible).to.eq(0);
+  });
+     it("estado abre ministerio ", () => {
+     estadoArgentino.abrirMinisterio(ministerioE);
+     estadoArgentino.ejecutarPartida(ministerioE,50);
+     expect(ministerioE.presupuestoSubejecutado).to.be.true;
+});
+
+
+
+
+});
 });
